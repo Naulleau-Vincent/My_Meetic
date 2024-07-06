@@ -8,18 +8,20 @@ DROP TABLE IF EXISTS loisir;
 DROP TABLE IF EXISTS user_loisir;
 DROP TABLE IF EXISTS user_password;
 
-CREATE TABLE user(
-    id           INT            NOT NULL AUTO_INCREMENT,
-    firstname    VARCHAR(255)   NOT NULL,
-    lastname     VARCHAR(255)   NOT NULL,
-    email        VARCHAR(255)   NOT NULL UNIQUE,
-    birthdate    DATE           NOT NULL,
-    gender       VARCHAR(255)   NOT NULL,
-    city         VARCHAR(255)   NOT NULL,
-    password     VARCHAR(65)    NOT NULL,
-    status       BOOLEAN        NOT NULL,
-    PRIMARY KEY (id)
-);
+CREATE TABLE user (
+    id INT NOT NULL AUTO_INCREMENT,
+    firstname VARCHAR(255) NOT NULL,
+    lastname VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    birthdate DATE NOT NULL,
+    gender VARCHAR(255) NOT NULL,
+    city VARCHAR(255) NOT NULL,
+    password VARCHAR(65) NOT NULL,
+    status BOOLEAN NOT NULL,
+    PRIMARY KEY (id),
+    UNIQUE KEY email_unique_idx (email(191))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 
 CREATE TABLE user_log(
     id           INT            NOT NULL AUTO_INCREMENT,
@@ -30,16 +32,10 @@ CREATE TABLE user_log(
     FOREIGN KEY (user_id)       REFERENCES user(id),
     PRIMARY KEY (id)
 );
-/*
-Creer une table user.log
-id
-user_id
-debut_Token
-fin_Token
-*/
-CREATE TABLE loisir(
-    id           INT            NOT NULL AUTO_INCREMENT,
-    name         VARCHAR(255)   NOT NULL UNIQUE,
+
+CREATE TABLE loisir (
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(191) NOT NULL UNIQUE,
     PRIMARY KEY (id)
 );
 
@@ -84,5 +80,5 @@ INSERT INTO loisir
             ('Couche tard'),
             ('Brunch'),
             ('La poesie'),
-            ('***Jean-Luc Kitoko***')
+            ('Jean-Luc Kitoko')
 ;
