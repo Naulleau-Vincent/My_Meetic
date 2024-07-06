@@ -1,0 +1,431 @@
+@font-face {
+    font-family: 'Oswald';
+    src: url('https://fonts.googleapis.com/css2?family=Oleo+Script&family=Oswald:wght@300&display=swap') format('truetype');
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body#signup_Body,body#loisir_Body{
+    background: url(../img/Mymeetic0.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+body#login_Body{
+    background: url(../img/Mymeetic1.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+body#perso_Body{
+    background: url(../img/love.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+header.sub_Header{
+    display: flex;
+    justify-content: space-between;
+}
+div.header_Container{
+    display: flex;
+    justify-content: end;
+}
+ul.list_Container2 {
+    display: flex;
+    list-style: none;
+}
+.list_Container2 > li {
+    position: relative;
+}
+
+.list_Container2 li{
+    display: block;
+    float: left;
+    position: relative;
+}
+.list_Container2 ul {
+    display: none; 
+    position: absolute;
+    top: 100%; 
+    left: 0; 
+}
+.list_Container2 li:hover > ul {
+    display: block; 
+}
+/* .list_Container2 li li{
+     max-height: 0;
+     overflow: hidden;
+     transition: all .5s;
+     box-shadow: none;
+     border:none;
+     display: flex;
+     justify-content: center;
+}
+.list_Container2 li:hover{
+    background-color: RGB(187, 1, 82);
+}*/
+ul.listUnder_Container{
+    display: flex;
+    flex-direction: column;
+}
+/* #body_fiche{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+} */
+/*RGB(255, 91, 82)
+*/
+.container{
+    position: relative;
+    overflow: hidden;
+    min-height: 80%;
+    width: 768px;
+    max-width: 100%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgb(0, 32, 63, .45),
+                0 8px 8px  rgb(0, 32, 63, .45);
+}
+.form_Container{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: .6s ease-in-out;
+}
+.sign-up-Container{
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+/* #signup{
+    background-color: white;
+} */
+.container.panel-active .sign-up-Container{
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: show .6s;
+}
+@keyframes show {
+    0%, 49.99%{
+        opacity: 0;
+        z-index: 1;
+    }
+    50%, 100%{
+        opacity: 1;
+        z-index: 5;
+    }
+}
+.container.panel-active .login-Container{
+    transform: translateX(100%);
+}
+div.pokedexForm_Container h2{
+    color: #00203f;
+    text-align: center;
+    font-size: 400%;
+}
+form:not(#perso_Form,.Not_lui){
+    color: RGB(255, 91, 82);
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 50px;
+    height: 100%;
+    text-align: center;
+}
+
+.login-Container{
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+input{
+    background-color: RGB(235, 64, 122);
+    border: none;
+    padding: 8px 11px;
+    margin: 6px 0;
+    width: 100%;
+}
+/* input[type = 'date']{
+    padding: 0;
+} */
+::placeholder{
+    color: black;
+}
+button{
+    background-color: RGB(235, 64, 122);
+    color: #00203f;
+    border: 1px solid RGB(235, 64, 122);
+    font-size: 16px;
+    font-weight: bold;
+    padding: 16px 32px;
+    margin-top: 18px;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    border-color: rgb(0, 32, 63, .45);
+    transition: .2s ease-in;
+}
+
+button.ghost{
+    background-color: transparent;
+}
+button:hover{
+    cursor: pointer;
+    background-color: #00203f;
+    color: #adf0d1;
+}
+button:active{
+    transform: scale(.95);
+}
+h1{
+    margin: 0;
+    font-size: 24px;
+    font-family: 'Oswald', sans-serif;
+
+}
+.button_Header{
+    width: 200%;
+}
+#button_Header h1{
+    font-size: 200%;
+    max-width: 200%;
+}
+.overlay-container{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 100;
+    transition: transform .6s ease-in-out;
+}
+.container.panel-active .overlay-container{
+    transform: translateX(-100%);
+}
+.overlay{
+    background: linear-gradient(to right, #adf0d1, #e7f0fd);
+    background: RGB(235, 64, 122);
+    color: #00203f;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: transform .6s ease-in-out;
+}
+.container.panel-active .overlay{
+    transform: translateX(50%);
+}
+.overlay-panel{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    text-align: center;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    transform: translateX(0);
+    transition: transform .6s ease-in-out;
+}
+.overlay-left{
+    transform: translateX(-10%);
+}
+.container.panel-active .overlay-left{
+    transform: translateX(0);
+}
+.overlay-right{
+    right: 0;
+    transform: translateX(0);
+}
+.container.panel-active .overlay-right{
+    transform: translateX(20%);
+}
+p:not(div.titles_Container p){
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 20px;
+    letter-spacing: .5px;
+    margin: 20px 0 30px;
+}
+
+
+fieldset{
+    display: flex;
+}
+.radio_Container{
+    display: flex;
+}
+.checkbox_Container{
+    max-width: 640px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 13px;
+}
+ul{
+    list-style: none;
+
+}
+ul.list_Container{
+    list-style: none;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+ul.list_Container li{
+    display: inline-block;
+}
+ul.list_Container li label{
+    display: inline-block;
+    background-color: rgba(255, 255, 255, .9);
+    border: 2px solid rgba(139, 139, 139, .3);
+    color: #adadad;
+    border-radius: 25px;
+    white-space: nowrap;
+    margin: 3px 0px;
+    padding: 8px 12px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: all .2s;
+    cursor: pointer;
+}
+ul.list_Container li label::before{
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 12px;
+    padding: 2px 6px 2px 2px;
+    content: "\f067";
+    transition: transform .3s ease-in-out;
+}
+ul.list_Container li input[type="checkbox"]:checked + label::before{
+    content: "\f00c";
+    transform: rotate(-360deg);
+    transition: transform .3s ease-in-out;
+}
+ul.list_Container li input[type="checkbox"]:checked + label{
+    border: 2px solid RGB(225, 54, 112);
+    background: RGB(235, 64, 122);
+    color: #fff;
+    transition: all .2s;
+}
+ul.list_Container li input[type="checkbox"]{
+    opacity: 0;
+    position: absolute; 
+}
+ul.list_Container li input[type="checkbox"]:focus + label{
+    border: 2px solid #e9a1ff;
+}
+form#loisirs_Form fieldset,form#loisirs_Form h1{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+div.loisirs-Container,form#loisirs_Form,div#loisirs_Container{
+    background: #FFEFBA;
+    background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);
+    background: linear-gradient(to right, #FFFFFF, #FFEFBA);
+}
+#perso_Form{
+    color: RGB(255, 91, 82);
+    padding: 0 50px;
+    height: 100%;
+    text-align: center;
+    border: dotted black;
+    margin-top: 3vh;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    max-height: 850px;
+}
+#perso_Form h1{
+    color: black;
+}
+#perso_Form h2{
+    color: black;
+    border: dotted black;
+    border-radius: 25px;
+    text-align: center;
+    max-width: 30%;
+}
+#perso_Form p{
+    text-align: center ;
+    max-width: 30%;
+    font-size: larger;
+    margin: .5% 1% .5% 0%;
+}
+div#title_Container{
+    text-align: start;
+}
+div.titles_Container{
+    margin-top: 3vh;
+}
+#persoSubmit_Container{
+    display: flex;
+    justify-content: center;
+}
+div.pokedexForm_Container{
+    width: 540px;
+    margin: 40px auto;
+    overflow: auto;
+}
+.slider-inner{
+    width: 500px;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    float: left;
+    padding: 3%;
+    border: #666 solid 1px;
+}
+.slider-inner article{
+    display: none;
+    width: 500px;
+    height: 300px;
+}
+article.active{
+    display: inline-block;
+}
+.next,.prev{
+    width: 50%;
+    height: auto;
+    float: left;
+    margin-top: 130px;
+    cursor: pointer;
+}
+.prev{
+    position: relative;
+    margin-right: -45px;
+    z-index: 100;
+}
+.next{        
+    transform: rotate(180deg);
+    position: relative;
+    margin-left: -45px;
+    z-index: 100;
+}
